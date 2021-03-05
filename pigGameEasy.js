@@ -1,14 +1,13 @@
+console.log('Hello1');
 var activePlayer, currentScore, gamePlay = true; 
 var score;
 
-init()
- 
-
-
 document.querySelector('.btn-roll').addEventListener('click', function(){
     if (gamePlay){
+        console.log("hello");
     
     var randNum = Math.floor(Math.random() * 6 +1);
+    console.log(randNum);
     diceDom = document.querySelector('.dice');
     diceDom.style.display = 'block';
     diceDom.src = 'dice-' + randNum + '.png';

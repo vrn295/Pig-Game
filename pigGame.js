@@ -2,11 +2,21 @@ var activePlayer,
   currentScore,
   gamePlay = true;
 var score;
+// var customize = document.querySelector('.btn-customize')
+document.querySelector(".btn-rules").addEventListener('click', function(){
+  alert(`Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
 
-init();
+  If the player rolls a 1, they score nothing and it becomes the next player's turn.
+  If the player rolls any other number, it is added to their turn total and the player's turn continues.
+  If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+
+The first player to score 100 wins. `)
+})
+init()
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
   if (gamePlay) {
+    // customize.style.display = 'none';
     var randNum1 = Math.floor(Math.random() * 6 + 1);
     var randNum2 = Math.floor(Math.random() * 6 + 1);
     diceDom1 = document.querySelector(".dice1");
@@ -42,7 +52,7 @@ function nextPlayer() {
   score[activePlayer] += currentScore;
   document.getElementById("score-" + activePlayer).textContent =
     score[activePlayer];
-  if (score[activePlayer] >= 50) {
+  if (score[activePlayer] >= 100) {
     document.getElementById("name-" + activePlayer).textContent = "Winner";
     gamePlay = false;
     document.querySelector(".dice1").style.display = "none";
@@ -80,6 +90,6 @@ function init() {
   document.querySelector(".player-0-panel").classList.remove("active");
   document.querySelector(".player-1-panel").classList.remove("active");
   document.querySelector(".player-0-panel").classList.add("active");
-  final_score = document.querySelector(".final_score").textContent;
-  console.log(final_score);
+  // customize.style.display = 'block';
 }
+
